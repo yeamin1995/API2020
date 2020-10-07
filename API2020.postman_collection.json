@@ -1,0 +1,172 @@
+{
+	"info": {
+		"_postman_id": "7108e2ee-6c16-44f3-bc6c-a88a8a15b681",
+		"name": "API2020",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "post Create a landlord",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"firstName\": \"rrrr1\",\n  \"lastName\": \"tttt1\",\n  \"trusted\": false\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/landlords",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"landlords"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all landlords",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/landlords",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"landlords"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get perticular landlord by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/landlords/OtW1VuMZ",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"landlords",
+						"OtW1VuMZ"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put- updated perticular landlord by id",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"firstName\": \"updated\",\n  \"lastName\": \"updated-last\",\n  \"trusted\": false\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/landlords/OtW1VuMZ",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"landlords",
+						"OtW1VuMZ"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete- remove perticular landlord by id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"firstName\": \"updated\",\n  \"lastName\": \"updated-last\",\n  \"trusted\": false\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/landlords/OtW1VuMZ",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"landlords",
+						"OtW1VuMZ"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all landlords",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/landlords",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"landlords"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
