@@ -6,7 +6,114 @@
 	},
 	"item": [
 		{
+			"name": "install postmanBDD",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "08360cd2-6cec-4419-9b69-639d8d52da14",
+						"exec": [
+							"postman.setGlobalVariable('postmanBDD', responseBody);",
+							"",
+							"// postmanBDD .. hold the values",
+							"// response body ... is the value"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://bigstickcarpet.com/postman-bdd/dist/postman-bdd.js",
+					"protocol": "http",
+					"host": [
+						"bigstickcarpet",
+						"com"
+					],
+					"path": [
+						"postman-bdd",
+						"dist",
+						"postman-bdd.js"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "post Create a landlord",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0dcb1e4b-5eb2-4e4a-8f29-8fd81fd380b4",
+						"exec": [
+							"eval(globals.postmanBDD);",
+							"",
+							"describe('Creating a new landlord',function() {",
+							"    ",
+							"    // assertion",
+							"    it('should return 201', function() {",
+							"        response.should.have.status(201);",
+							"    });",
+							"",
+							"    pm.test(\"Status code is 200\", function () {",
+							"            pm.response.to.have.status(201);",
+							"        });",
+							"",
+							"    // assertion",
+							"    it('should return  JSON in header as contentType', function() {",
+							"    response.should.have.header('content-type','application/json;charset=UTF-8');",
+							"    });",
+							"",
+							" // assertion",
+							"    it('should return firstName', function() {",
+							"        response.body.should.have.property('firstName').and.equal('aaaaaa');",
+							"        ",
+							"",
+							"    });",
+							"     pm.environment.set(\"landlordid\", response.body.id);",
+							"    });",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "31b85915-dcaf-4cc9-bcbb-b1e1233f4d8a",
+						"exec": [
+							"const today = new Date();",
+							"",
+							"const date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();",
+							"",
+							"const time = today.getHours() + \":\" + today.getMinutes() + \":\" + today.getSeconds();",
+							"",
+							"const dateTime = date+' '+time;",
+							"console.log(dateTime);",
+							"  // set an environment ( set dateTime in today)",
+							"pm.environment.set(\"2day\", dateTime);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [
@@ -18,7 +125,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"firstName\": \"rrrr1\",\n  \"lastName\": \"tttt1\",\n  \"trusted\": false\n}",
+					"raw": "{\n  \"firstName\": \"aaaaaa\",\n  \"lastName\": \"tttt5\",\n  \"trusted\": false,\n  \"startDate\": \"{{2day}}\"\n\n}",
 					"options": {
 						"raw": {
 							"language": "json"
